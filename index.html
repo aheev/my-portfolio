@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aheev — Open Source Portfolio</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="wrapper">
+    <header class="header">
+      <h1 class="name">Ally Heev (aheev)</h1>
+      <p class="tag">Open-source contributor — Apache Kafka, Apache Iceberg, Linux kernel</p>
+      <p class="links">GitHub: <a href="https://github.com/aheev">@aheev</a></p>
+    </header>
+
+    <section class="section">
+      <h2>Highlights</h2>
+      <ul>
+        <li>Automatically updated daily via GitHub Actions</li>
+        <li>GitHub PRs + issues</li>
+        <li>Apache Kafka JIRA</li>
+        <li>Linux kernel (lore.kernel.org)</li>
+        <li>git.kernel.org commit search</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Contribution Overview</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>GitHub</h3>
+          <div id="github-stats">Loading...</div>
+        </div>
+        <div class="card">
+          <h3>Kafka JIRA</h3>
+          <div id="jira-stats">Loading...</div>
+        </div>
+        <div class="card">
+          <h3>Linux Kernel</h3>
+          <div id="linux-stats">Loading...</div>
+        </div>
+        <div class="card">
+          <h3>git.kernel.org</h3>
+          <div id="gitkernel-stats">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Latest Contributions</h2>
+      <div id="latest-list">Loading...</div>
+    </section>
+
+    <footer class="footer">
+      <p>Generated nightly by GitHub Actions</p>
+    </footer>
+  </main>
+
+<script>
+async function loadJSON(path){
+  try{
+    const res = await fetch(path, {cache: 'no-store'});
+    return res.ok ? res.json() : null;
+  } catch { return null }
+}
+
+async function render(){
+  const base = "data/";
+  const [gh, jira, linux, gitk] = await Promise.all([
+    loadJSON(base + "github.json"),
+    loadJSON(base + "kafka_jira.json"),
+    loadJSON(base + "linux_patches.json"),
+    loadJSON(base + "gitkernel.json")
+  ]);
+
+  document.getElementById('github-stats').innerHTML =
+    gh ? `Merged PRs: <b>${gh.mergedCount}</b><br>Open PRs: <b>${gh.openCount}</b>` :
+         "No data";
+
+  document.getElementById('jira-stats').innerHTML =
+    jira ? `Total Issues: <b>${jira.total}</b>` :
+           "No data";
+
+  document.getElementById('linux-stats').innerHTML =
+    linux ? `Patches: <b>${linux.count}</b>` :
+            "No data";
+
+  document.getElementById('gitkernel-stats').innerHTML =
+    gitk ? `Commits: <b>${gitk.count}</b>` :
+           "No data";
+
+  const latest = [];
+
+  if(gh?.items) latest.push(...gh.items.map(i => ({
+    type: "GitHub PR",
+    title: i.title,
+    link: i.url,
+    date: i.mergedAt || i.updatedAt
+  })));
+
+  if(jira?.items) latest.push(...jira.items.map(i => ({
+    type: "Kafka JIRA",
+    title: i.key + ": " + i.fields.summary,
+    link: "https://issues.apache.org/jira/browse/" + i.key,
+    date: i.fields.updated
+  })));
+
+  if(linux?.items) latest.push(...linux.items);
+
+  latest.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+  document.getElementById('latest-list').innerHTML =
+    "<ul>" + latest.slice(0,10).map(x =>
+      `<li><strong>${x.type}</strong> — <a href="${x.link}" target="_blank">${x.title}</a>
+      <em>(${new Date(x.date).toLocaleDateString()})</em></li>`
+    ).join("") + "</ul>";
+}
+
+render();
+</script>
+</body>
+</html>
