@@ -4,186 +4,104 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ally Heev — Open Source Portfolio</title>
-
-  <!-- Styles -->
   <link rel="stylesheet" href="assets/style.css">
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="header-inner">
-      <div class="title">
+    <div class="inner">
+      <div>
         <h1>Ally Heev <span class="muted">/ @aheev</span></h1>
-        <p class="subtitle">Open-source contributions — Apache Kafka · Apache Iceberg · Linux kernel</p>
+        <p class="muted small">Open-source contributions — Apache Kafka · Apache Iceberg · Linux kernel</p>
       </div>
-      <div class="controls">
+      <div>
         <button id="theme-toggle" title="Toggle theme">🌙</button>
       </div>
     </div>
   </header>
 
-  <main class="wrapper">
-    <nav class="filters" aria-label="filters">
-      <button class="filter active" data-filter="all">All</button>
-      <button class="filter" data-filter="github">GitHub</button>
-      <button class="filter" data-filter="jira">Kafka JIRA</button>
-      <button class="filter" data-filter="kernel">Kernel (lore)</button>
-      <button class="filter" data-filter="gitkernel">git.kernel.org</button>
-    </nav>
-
-    <section class="overview">
-      <div class="card stats">
-        <div class="stats-left">
-          <div class="big" id="big-merged">—</div>
-          <div class="muted">merged PRs</div>
-        </div>
-        <div class="stats-right">
-          <div class="stat-item"><strong id="count-prs">—</strong><div class="muted">total PRs</div></div>
-          <div class="stat-item"><strong id="count-jira">—</strong><div class="muted">Kafka tickets</div></div>
-          <div class="stat-item"><strong id="count-linux">—</strong><div class="muted">kernel patches</div></div>
-        </div>
+  <main class="container">
+    <section class="cards">
+      <div class="card">
+        <div class="big" id="merged-count">—</div>
+        <div class="muted">merged PRs</div>
       </div>
-
-      <div class="card small quick">
-        <h3>Quick counts</h3>
-        <ul id="quick-list" class="compact">
-          <li>GitHub PRs: —</li>
-          <li>Kafka JIRA: —</li>
-          <li>Kernel patches: —</li>
-          <li>git.kernel.org commits: —</li>
-        </ul>
+      <div class="card small">
+        <div>GitHub PRs: <strong id="pr-count">—</strong></div>
+        <div>Kafka JIRA: <strong id="jira-count">—</strong></div>
+        <div>Kernel patches: <strong id="patch-count">—</strong></div>
       </div>
     </section>
 
-    <section class="analytics">
-      <h2>Analytics & Timelines</h2>
+    <section>
+      <h2>Timeline (monthly)</h2>
+      <canvas id="timelineChart" height="120"></canvas>
+    </section>
 
-      <div class="grid">
-        <div class="card">
-          <h4>Monthly timeline</h4>
-          <canvas id="timelineChart" aria-label="Timeline chart" role="img"></canvas>
-        </div>
-
-        <div class="card">
-          <h4>Kernel subsystems</h4>
-          <canvas id="subsystemChart" aria-label="Subsystem chart" role="img"></canvas>
-        </div>
-
-        <div class="card">
-          <h4>Top repos (PRs)</h4>
-          <canvas id="reposChart" aria-label="Top repos chart" role="img"></canvas>
-        </div>
+    <section class="grid">
+      <div class="card">
+        <h3>Kernel subsystems</h3>
+        <canvas id="subsystemChart" height="160"></canvas>
+      </div>
+      <div class="card">
+        <h3>Top repos (PRs)</h3>
+        <canvas id="reposChart" height="160"></canvas>
       </div>
     </section>
 
-    <section class="latest">
+    <section>
       <h2>Latest contributions</h2>
-      <div id="latest-list">Loading…</div>
+      <div id="latest">Loading…</div>
     </section>
 
-    <footer class="footer">
-      <p>Data generated from GitHub, Apache JIRA, lore.kernel.org and git.kernel.org. Site auto-updated via GitHub Actions.</p>
-    </footer>
+    <footer class="footer muted">Site auto-updated via GitHub Actions</footer>
   </main>
 
 <script>
-/* Page logic: loads JSON files and populates page & charts */
 async function loadJSON(path){
-  try {
-    const res = await fetch(path, {cache: 'no-store'});
-    return res.ok ? await res.json() : null;
-  } catch (e) { return null; }
+  try { const r = await fetch(path, {cache: 'no-store'}); return r.ok ? await r.json() : null }
+  catch(e){ return null }
 }
 
-/* Render page content */
-async function renderPage(){
-  const [gh, jira, linux, gitk, analytics] = await Promise.all([
+async function init(){
+  const [gh, jira, commits, patches, analytics] = await Promise.all([
     loadJSON('data/github.json'),
     loadJSON('data/kafka_jira.json'),
+    loadJSON('data/linux_commits.json'),
     loadJSON('data/linux_patches.json'),
-    loadJSON('data/gitkernel.json'),
-    loadJSON('data/analytics.json')
+    loadJSON('data/analytics.json'),
   ]);
 
-  // Quick stats
-  const totalPRs = gh?.items?.length || 0;
-  const mergedPRs = gh?.mergedCount || 0;
-  const jiraTotal = jira?.total || 0;
-  const linuxPatches = linux?.count || 0;
-  const gitkCount = gitk?.count || 0;
+  document.getElementById('merged-count').textContent = gh?.mergedCount || 0;
+  document.getElementById('pr-count').textContent = (gh?.items?.length || 0);
+  document.getElementById('jira-count').textContent = (jira?.total || 0);
+  document.getElementById('patch-count').textContent = (patches?.patches?.length || 0);
 
-  document.getElementById('big-merged').textContent = mergedPRs;
-  document.getElementById('count-prs').textContent = totalPRs;
-  document.getElementById('count-jira').textContent = jiraTotal;
-  document.getElementById('count-linux').textContent = linuxPatches;
-
-  const quickList = document.getElementById('quick-list');
-  quickList.innerHTML = `
-    <li>GitHub PRs: <strong>${totalPRs}</strong></li>
-    <li>GitHub merged: <strong>${mergedPRs}</strong></li>
-    <li>Kafka JIRA: <strong>${jiraTotal}</strong></li>
-    <li>Kernel patches (lore): <strong>${linuxPatches}</strong></li>
-    <li>git.kernel.org commits: <strong>${gitkCount}</strong></li>
-  `;
-
-  // Latest list
+  // latest list
   const latest = [];
-  if (gh?.items) latest.push(...gh.items.map(i=>({type:'GitHub', title:i.title, link:i.url, date:i.mergedAt || i.updatedAt})));
-  if (jira?.items) latest.push(...jira.items.map(i=>({type:'JIRA', title:i.key + ': ' + i.fields.summary, link:'https://issues.apache.org/jira/browse/' + i.key, date:i.fields.updated})));
-  if (linux?.items) latest.push(...linux.items.map(i=>({type:'Kernel', title:i.subject || i.title || '(patch)', link:i.url || i.link, date:i.date})));
-  if (gitk?.items) latest.push(...gitk.items.map(i=>({type:'git.kernel', title:i.title, link:i.url, date:i.date})));
-
+  if (gh?.items) latest.push(...gh.items.map(i=>({t:'GitHub', title:i.title, url:i.url, date:i.mergedAt||i.updatedAt})));
+  if (jira?.items) latest.push(...jira.items.map(i=>({t:'JIRA', title:i.key+': '+i.fields.summary, url:'https://issues.apache.org/jira/browse/'+i.key, date:i.fields.updated})));
+  if (commits?.commits) latest.push(...commits.commits.map(i=>({t:'Kernel commit', title:i.title, url:i.url, date:i.date})));
+  if (patches?.patches) latest.push(...patches.patches.map(i=>({t:'Kernel patch', title:i.title, url:i.url, date:i.date})));
   latest.sort((a,b)=> new Date(b.date) - new Date(a.date));
-  const latestEl = document.getElementById('latest-list');
-  if (latest.length === 0) {
-    latestEl.innerHTML = '<p>No contributions found yet.</p>';
-  } else {
-    latestEl.innerHTML = '<ul class="list">' + latest.slice(0,30).map(x=>`
-      <li class="list-item">
-        <span class="pill">${x.type}</span>
-        <a href="${x.link}" target="_blank" rel="noopener noreferrer">${x.title}</a>
-        <span class="muted"> — ${new Date(x.date).toLocaleDateString()}</span>
-      </li>`).join('') + '</ul>';
-  }
+  const latestEl = document.getElementById('latest');
+  latestEl.innerHTML = '<ul>' + latest.slice(0,20).map(x=>`<li><strong>${x.t}</strong> — <a href="${x.url}" target="_blank">${x.title}</a> <span class="muted">(${new Date(x.date).toLocaleDateString()})</span></li>`).join('') + '</ul>';
 
-  // Init charts if analytics available
-  if (typeof window.initCharts === 'function' && analytics) {
-    window.initCharts(analytics);
-  } else if (analytics) {
-    // fallback: attempt to load charts script later if not loaded
-    setTimeout(()=>{ if (typeof window.initCharts === 'function') window.initCharts(analytics); }, 500);
-  }
+  // charts
+  if (analytics && window.renderCharts) window.renderCharts(analytics);
 }
+init();
 
-renderPage();
-
-/* Theme toggle */
-const themeToggle = document.getElementById('theme-toggle');
+/* theme */
+const tbtn = document.getElementById('theme-toggle');
 const root = document.documentElement;
-const saved = localStorage.getItem('theme');
-if (saved) root.setAttribute('data-theme', saved);
-themeToggle.addEventListener('click', ()=>{
+if(localStorage.getItem('theme')==='light') root.setAttribute('data-theme','light');
+tbtn.addEventListener('click', ()=>{
   const cur = root.getAttribute('data-theme') || 'dark';
   const next = cur === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
-  themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
-});
-
-/* Simple filter behavior */
-document.querySelectorAll('.filter').forEach(b=>{
-  b.addEventListener('click', ()=>{
-    document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    const f = b.getAttribute('data-filter');
-    document.querySelectorAll('.pill').forEach(p=>{
-      const li = p.parentElement;
-      if (f === 'all') li.style.display = '';
-      else li.style.display = p.textContent.toLowerCase().includes(f) ? '' : 'none';
-    });
-  });
+  tbtn.textContent = next === 'dark' ? '🌙' : '☀️';
 });
 </script>
 

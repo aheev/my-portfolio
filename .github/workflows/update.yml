@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -23,57 +23,50 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      - name: Install Python dependencies
+      - name: Install Python deps
         run: |
-          pip install requests PyGithub
+          python -m pip install --upgrade pip
+          pip install requests PyGithub beautifulsoup4 lxml
 
-      # ------------------------------------------
-      # 1. Fetch GitHub contributions
-      # ------------------------------------------
-      - name: Fetch GitHub PRs and commits
+      - name: Fetch GitHub contributions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/fetch_contributions.py
 
-      # ------------------------------------------
-      # 2. Fetch Linux kernel commits + patches
-      # ------------------------------------------
-      - name: Fetch Linux kernel contributions
+      - name: Fetch Linux kernel commits & patches
         env:
+          # store your email in repo secret KERNEL_EMAIL or leave blank to use default in script
           KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
-          MAX_PAGES: 10
+          MAX_PAGES: 12
           SLEEP_BETWEEN_REQUESTS: 0.8
         run: |
           python3 scripts/fetch_kernel.py
 
-      # ------------------------------------------
-      # 3. Analytics
-      # ------------------------------------------
       - name: Generate analytics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/analyze.py
 
-      # ------------------------------------------
-      # 4. Commit updated data/*.json
-      # ------------------------------------------
-      - name: Commit updated data files
+      - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/*.json || true
           if ! git diff --cached --quiet; then
-            git commit -m "Update contribution data"
+            git commit -m "Update data & analytics"
+            git push
+          else
+            echo "No changes to commit"
           fi
 
-      # ------------------------------------------
-      # 5. Deploy to gh-pages
-      # ------------------------------------------
-      - name: Deploy to GitHub Pages
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./
           force_orphan: true
