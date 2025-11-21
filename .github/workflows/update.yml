@@ -29,39 +29,36 @@ jobs:
         run: |
           pip install requests PyGithub
 
-      # ----------------------------------------------
-      # 1. Fetch GitHub contributions (existing script)
-      # ----------------------------------------------
+      # ------------------------------------------
+      # 1. Fetch GitHub contributions
+      # ------------------------------------------
       - name: Fetch GitHub PRs and commits
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/fetch_contributions.py
 
-      # -------------------------------------------------------
-      # 2. Fetch Linux kernel contributions (new robust script)
-      # -------------------------------------------------------
-      - name: Fetch Linux kernel commits & patches
+      # ------------------------------------------
+      # 2. Fetch Linux kernel commits + patches
+      # ------------------------------------------
+      - name: Fetch Linux kernel contributions
         env:
-          # Your email is used internally by the script but NOT shown in your site.
-          # You can also set this as a secret to avoid storing it in the repo.
-          KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}  
-          # optional overrides:
+          KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
           MAX_PAGES: 10
           SLEEP_BETWEEN_REQUESTS: 0.8
         run: |
           python3 scripts/fetch_kernel.py
 
-      # -------------------------------------------------------
-      # 3. Run analytics (creates analytics.json + charts inputs)
-      # -------------------------------------------------------
-      - name: Run analytics generation
+      # ------------------------------------------
+      # 3. Analytics
+      # ------------------------------------------
+      - name: Generate analytics
         run: |
           python3 scripts/analyze.py
 
-      # ----------------------------------------------
-      # 4. Commit updated JSON data if anything changed
-      # ----------------------------------------------
+      # ------------------------------------------
+      # 4. Commit updated data/*.json
+      # ------------------------------------------
       - name: Commit updated data files
         run: |
           git config user.name "github-actions[bot]"
@@ -71,19 +68,12 @@ jobs:
             git commit -m "Update contribution data"
           fi
 
-      # ----------------------------------------------
-      # 5. Build static site (your renderer/out generator)
-      # ----------------------------------------------
-      - name: Build site
-        run: |
-          python3 scripts/render_site.py
-
-      # ----------------------------------------------
-      # 6. Deploy to gh-pages
-      # ----------------------------------------------
+      # ------------------------------------------
+      # 5. Deploy to gh-pages
+      # ------------------------------------------
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./
           force_orphan: true
