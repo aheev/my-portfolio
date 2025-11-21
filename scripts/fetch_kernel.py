@@ -17,7 +17,7 @@ Writes (safe-for-site) JSON files into ./data/:
 - data/kernel_patches.json    (detailed patches)
 
 Environment:
-- KERNEL_EMAIL (optional): email to search (default: allyheev@gmail.com) - used internally only
+- KERNEL_EMAIL: email to search
 - MAX_PAGES (optional): int, max pages to fetch per source (default 8)
 """
 
@@ -27,7 +27,7 @@ from datetime import datetime
 import requests
 
 # ------------------ Configuration ------------------
-KERNEL_EMAIL = os.environ.get("KERNEL_EMAIL", "allyheev@gmail.com")
+KERNEL_EMAIL = os.environ.get("KERNEL_EMAIL", "")
 MAX_PAGES = int(os.environ.get("MAX_PAGES", "8"))   # per source
 SLEEP_BETWEEN_REQUESTS = float(os.environ.get("SLEEP_BETWEEN_REQUESTS", "0.8"))
 USER_AGENT = os.environ.get("USER_AGENT", "Mozilla/5.0 (compatible; fetch_kernel/1.0; +https://github.com/aheev)")
