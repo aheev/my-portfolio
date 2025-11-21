@@ -32,6 +32,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/fetch_contributions.py
 
+      - name: Fetch kernel commits & patches (git.kernel.org, lore)
+        env:
+                KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
+        run: |
+                python3 scripts/fetch_kernel.py
+
       - name: Analyze contributions (generate analytics.json)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
