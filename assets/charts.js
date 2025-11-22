@@ -12,7 +12,7 @@ window.renderCharts = async function(analytics){
 
     // timeline line chart
     const tctx = document.getElementById('timelineChart').getContext('2d');
-    if(window.timelineChart) window.timelineChart.destroy();
+    if(window.timelineChart && typeof window.timelineChart.destroy === 'function') window.timelineChart.destroy();
     window.timelineChart = new Chart(tctx, {
       type:'line',
       data:{
@@ -46,7 +46,7 @@ window.renderCharts = async function(analytics){
     // repos bar
     const top_repos = analytics.top_repos || [];
     const rctx = document.getElementById('reposChart').getContext('2d');
-    if(window.reposChart) window.reposChart.destroy();
+    if(window.reposChart && typeof window.reposChart.destroy === 'function') window.reposChart.destroy();
     window.reposChart = new Chart(rctx, {
       type:'bar',
       data:{ labels: top_repos.map(r=>r.name), datasets:[{label:'PRs', data: top_repos.map(r=>r.prs), backgroundColor:generatePalette(top_repos.length)}] },
