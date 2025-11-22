@@ -5,7 +5,7 @@ window.renderCharts = async function(analytics){
   try {
     const tl = analytics.timeline;
     const months = tl.months || [];
-    const github = tl.github || [];
+    const github_prs = tl.github_prs || [];
     const jira = tl.jira || [];
 //     const kernel = tl.kernel || [];
 //     const gitkernel = tl.gitkernel || [];
@@ -18,7 +18,7 @@ window.renderCharts = async function(analytics){
       data:{
         labels: months,
         datasets:[
-          {label:'GitHub PRs', data: github, borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,0.06)', tension:0.3, pointRadius:2},
+          {label:'GitHub PRs', data: github_prs, borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,0.06)', tension:0.3, pointRadius:2},
           {label:'Kafka JIRA', data: jira, borderColor:'#059669', backgroundColor:'rgba(5,150,105,0.04)', tension:0.3, pointRadius:2},
         //   {label:'Kernel (lore)', data: kernel, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,0.04)', tension:0.3, pointRadius:2},
         //   {label:'git.kernel.org', data: gitkernel, borderColor:'#a855f7', backgroundColor:'rgba(168,85,247,0.04)', tension:0.3, pointRadius:2},
@@ -44,12 +44,12 @@ window.renderCharts = async function(analytics){
 //     });
 
     // repos bar
-    const repos = analytics.repos || [];
+    const top_repos = analytics.top_repos || [];
     const rctx = document.getElementById('reposChart').getContext('2d');
     if(window.reposChart) window.reposChart.destroy();
     window.reposChart = new Chart(rctx, {
       type:'bar',
-      data:{ labels: repos.map(r=>r.name), datasets:[{label:'PRs', data: repos.map(r=>r.prs), backgroundColor:generatePalette(repos.length)}] },
+      data:{ labels: top_repos.map(r=>r.name), datasets:[{label:'PRs', data: top_repos.map(r=>r.prs), backgroundColor:generatePalette(top_repos.length)}] },
       options:{responsive:true, maintainAspectRatio:false, animation:{duration:700}, plugins:{legend:{display:false}}, scales:{x:{ticks:{maxRotation:30,minRotation:0}}} }
     });
 
