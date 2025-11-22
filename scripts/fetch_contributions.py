@@ -118,5 +118,5 @@ def fetch_gitkernel():
 
 json.dump(fetch_github(), open(f"{DATA_DIR}/github.json", "w"), indent=2)
 json.dump(fetch_kafka_jira(), open(f"{DATA_DIR}/kafka_jira.json", "w"), indent=2)
-json.dump(fetch_linux_patches(), open(f"{DATA_DIR}/linux_patches.json", "w"), indent=2)
-json.dump(fetch_gitkernel(), open(f"{DATA_DIR}/gitkernel.json", "w"), indent=2)
+# json.dump(fetch_linux_patches(), open(f"{DATA_DIR}/linux_patches.json", "w"), indent=2)
+# json.dump(fetch_gitkernel(), open(f"{DATA_DIR}/gitkernel.json", "w"), indent=2)
