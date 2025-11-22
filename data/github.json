@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
+      "url": "https://github.com/paulgazz/kmax/pull/301",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2025-11-13T08:33:45Z"
+    },
+    {
+      "title": "Core: IRC: Implement Events Endpoint Request & Response Objects",
+      "url": "https://github.com/apache/iceberg/pull/14142",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2025-11-12T14:15:43Z"
+    },
+    {
+      "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
+      "url": "https://github.com/apache/kafka/pull/20385",
+      "merged": true,
+      "mergedAt": "2025-09-23T09:01:40Z",
+      "updatedAt": "2025-09-29T17:09:29Z"
+    },
+    {
+      "title": "Removing dead programs",
+      "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
+      "merged": true,
+      "mergedAt": "2025-08-29T08:21:27Z",
+      "updatedAt": "2025-08-29T08:21:28Z"
+    },
+    {
+      "title": "KAFKA-15038: Replace topicIdByPartitionMap with MetadataCache instance in RemoteLogManager",
+      "url": "https://github.com/apache/kafka/pull/20256",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2025-09-03T15:57:34Z"
+    }
+  ],
+  "mergedCount": 2,
+  "openCount": 3
+}
