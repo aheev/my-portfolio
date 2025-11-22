@@ -15,26 +15,12 @@
     "jira": [
       0,
       2
-    ],
-    "kernel_commits": [
-      0,
-      0
-    ],
-    "kernel_patches": [
-      0,
-      0
-    ],
-    "gitkernel": [
-      0,
-      0
     ]
   },
   "totals": {
     "github_prs": 5,
     "github_issues": 0,
-    "jira_total": 2,
-    "kernel_commits": 0,
-    "kernel_patches": 0
+    "jira_total": 2
   },
   "top_repos": [
     {
@@ -54,7 +40,6 @@
       "prs": 1
     }
   ],
-  "kernel_subsystems": {},
   "recent": [
     {
       "source": "GitHub PR",
