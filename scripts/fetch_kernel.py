@@ -8,7 +8,7 @@ Writes:
  - data/linux_patches.json   -> { "patches": [ ... ] }
 
 Config via env:
- - KERNEL_EMAIL (optional) default 'allyheev@gmail.com'
+ - KERNEL_EMAIL
  - MAX_PAGES (optional) default 8
  - SLEEP_BETWEEN_REQUESTS (optional) default 0.8
 """
@@ -18,7 +18,7 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
-KERNEL_EMAIL = os.environ.get("KERNEL_EMAIL", "allyheev@gmail.com")
+KERNEL_EMAIL = os.environ.get("KERNEL_EMAIL", "")
 MAX_PAGES = int(os.environ.get("MAX_PAGES", "8"))
 SLEEP = float(os.environ.get("SLEEP_BETWEEN_REQUESTS", "0.8"))
 HEADERS = {"User-Agent": os.environ.get("USER_AGENT", "Mozilla/5.0 (compatible; fetch_kernel/1.0)")}
