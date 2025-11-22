@@ -166,9 +166,9 @@ def ensure_list(x):
 gh = load_json("github.json")                 # expected: { items: [...], mergedCount: N }
 gh_issues = load_json("github_issues.json")   # optional
 jira = load_json("kafka_jira.json")           # expected: { items: [...], total: N }
-commits = load_json("linux_commits.json")     # expected: { commits: [...] } or { items: [...] }
-patches = load_json("linux_patches.json")     # expected: { patches: [...] } or { items: [...] }
-gitk = load_json("gitkernel.json")            # expected compatibility { items: [...], count: N }
+# commits = load_json("linux_commits.json")     # expected: { commits: [...] } or { items: [...] }
+# patches = load_json("linux_patches.json")     # expected: { patches: [...] } or { items: [...] }
+# gitk = load_json("gitkernel.json")            # expected compatibility { items: [...], count: N }
 
 # Normalize shapes
 gh_items = gh.get("items") or gh.get("prs") or []
@@ -186,14 +186,14 @@ per_source_month = {
     "github_prs": Counter(),
     "github_issues": Counter(),
     "jira": Counter(),
-    "kernel_commits": Counter(),
-    "kernel_patches": Counter(),
-    "gitkernel": Counter()
+#     "kernel_commits": Counter(),
+#     "kernel_patches": Counter(),
+#     "gitkernel": Counter()
 }
 
 # repo counters and kernel subsystems
 repo_counter = Counter()
-subsystem_counter = Counter()
+# subsystem_counter = Counter()
 
 # recent contributions aggregated across sources (collect ISO date + metadata)
 recent = []
@@ -259,30 +259,30 @@ for it in jira_items:
 
 # -- Kernel commits (linux_commits.json & gitkernel compatibility) --
 # commit entries may have 'date' or 'commit_date' or other forms
-for c in commit_items + gitk_items:
-    iso = None
-    iso = iso or parse_timestamp_to_iso(c.get("date") or c.get("commit_date") or c.get("author_date") or c.get("committer_date"))
-    # many kernel entries used relative strings; parse_timestamp_to_iso handles that
-    month = month_key_from_iso(iso) if iso else None
-    if month:
-        per_source_month["kernel_commits"][month] += 1
-    sub = c.get("subsystem") or c.get("subsys") or "unknown"
-    subsystem_counter[sub] += 1
-    title = c.get("title") or c.get("subject") or ""
-    url = c.get("url") or c.get("link") or ""
-    add_recent("Kernel commit", title, url, iso, {"subsystem": sub})
+# for c in commit_items + gitk_items:
+#     iso = None
+#     iso = iso or parse_timestamp_to_iso(c.get("date") or c.get("commit_date") or c.get("author_date") or c.get("committer_date"))
+#     # many kernel entries used relative strings; parse_timestamp_to_iso handles that
+#     month = month_key_from_iso(iso) if iso else None
+#     if month:
+#         per_source_month["kernel_commits"][month] += 1
+#     sub = c.get("subsystem") or c.get("subsys") or "unknown"
+#     subsystem_counter[sub] += 1
+#     title = c.get("title") or c.get("subject") or ""
+#     url = c.get("url") or c.get("link") or ""
+#     add_recent("Kernel commit", title, url, iso, {"subsystem": sub})
 
 # -- Kernel patches (lore) --
-for p in patch_items:
-    iso = None
-    iso = iso or parse_timestamp_to_iso(p.get("date") or p.get("posted") or p.get("created"))
-    month = month_key_from_iso(iso) if iso else None
-    if month:
-        per_source_month["kernel_patches"][month] += 1
-    title = p.get("title") or p.get("subject") or ""
-    url = p.get("url") or p.get("link") or ""
-    state = p.get("state") or p.get("status") or ""
-    add_recent("Kernel patch", title, url, iso, {"state": state})
+# for p in patch_items:
+#     iso = None
+#     iso = iso or parse_timestamp_to_iso(p.get("date") or p.get("posted") or p.get("created"))
+#     month = month_key_from_iso(iso) if iso else None
+#     if month:
+#         per_source_month["kernel_patches"][month] += 1
+#     title = p.get("title") or p.get("subject") or ""
+#     url = p.get("url") or p.get("link") or ""
+#     state = p.get("state") or p.get("status") or ""
+#     add_recent("Kernel patch", title, url, iso, {"state": state})
 
 # ------------------ Build month axis (last 24 months ending at latest event) ------------------
 # collect all months seen
@@ -333,9 +333,9 @@ timeline = {
     "github_prs": [per_source_month["github_prs"].get(m, 0) for m in mon_list],
     "github_issues": [per_source_month["github_issues"].get(m, 0) for m in mon_list],
     "jira": [per_source_month["jira"].get(m, 0) for m in mon_list],
-    "kernel_commits": [per_source_month["kernel_commits"].get(m, 0) for m in mon_list],
-    "kernel_patches": [per_source_month["kernel_patches"].get(m, 0) for m in mon_list],
-    "gitkernel": [per_source_month["gitkernel"].get(m, 0) for m in mon_list]
+#     "kernel_commits": [per_source_month["kernel_commits"].get(m, 0) for m in mon_list],
+#     "kernel_patches": [per_source_month["kernel_patches"].get(m, 0) for m in mon_list],
+#     "gitkernel": [per_source_month["gitkernel"].get(m, 0) for m in mon_list]
 }
 
 # ------------------ Top repos (from GitHub PRs) ------------------
@@ -360,8 +360,8 @@ totals = {
     "github_prs": len(gh_items),
     "github_issues": len(gh_issue_items),
     "jira_total": jira.get("total") or len(jira_items),
-    "kernel_commits": len(commit_items) + len(gitk_items),
-    "kernel_patches": len(patch_items)
+#     "kernel_commits": len(commit_items) + len(gitk_items),
+#     "kernel_patches": len(patch_items)
 }
 
 # ------------------ Output ------------------
@@ -369,7 +369,7 @@ out = {
     "timeline": timeline,
     "totals": totals,
     "top_repos": top_repos,
-    "kernel_subsystems": dict(subsystem_counter),
+#     "kernel_subsystems": dict(subsystem_counter),
     "recent": recent_trimmed
 }
 

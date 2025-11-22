@@ -21,8 +21,8 @@
           <button class="chip active" data-filter="all">All</button>
           <button class="chip" data-filter="github">GitHub</button>
           <button class="chip" data-filter="jira">Kafka JIRA</button>
-          <button class="chip" data-filter="kernel">Kernel (lore)</button>
-          <button class="chip" data-filter="gitkernel">git.kernel.org</button>
+          <!-- <button class="chip" data-filter="kernel">Kernel (lore)</button>
+          <button class="chip" data-filter="gitkernel">git.kernel.org</button> -->
         </nav>
 
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
@@ -40,7 +40,7 @@
         <div class="hero-right">
           <div class="small-stat"><span id="stat-total-prs">—</span><div class="muted">total PRs</div></div>
           <div class="small-stat"><span id="stat-jira">—</span><div class="muted">Kafka tickets</div></div>
-          <div class="small-stat"><span id="stat-kernel-patches">—</span><div class="muted">kernel patches</div></div>
+          <!-- <div class="small-stat"><span id="stat-kernel-patches">—</span><div class="muted">kernel patches</div></div> -->
         </div>
       </div>
 
@@ -50,8 +50,8 @@
           <li>GitHub PRs: —</li>
           <li>GitHub merged: —</li>
           <li>Kafka JIRA: —</li>
-          <li>Kernel patches (lore): —</li>
-          <li>git.kernel.org commits: —</li>
+          <!-- <li>Kernel patches (lore): —</li>
+          <li>git.kernel.org commits: —</li> -->
         </ul>
       </aside>
     </section>
@@ -65,10 +65,10 @@
           <div class="chart-wrap"><canvas id="timelineChart" aria-label="Monthly activity timeline"></canvas></div>
         </div>
 
-        <div class="card chart-card" data-anim>
+        <!-- <div class="card chart-card" data-anim>
           <h3 class="card-title">Kernel subsystems</h3>
           <div class="chart-wrap"><canvas id="subsystemChart" aria-label="Kernel subsystems"></canvas></div>
-        </div>
+        </div> -->
 
         <div class="card chart-card" data-anim>
           <h3 class="card-title">Top repos (PRs)</h3>
@@ -132,21 +132,19 @@ async function populate(){
   const totalPRs = gh?.items?.length || 0;
   const merged = gh?.mergedCount || 0;
   const jiraTotal = jira?.total || 0;
-  const kernelPatches = linux?.count || 0;
+//   const kernelPatches = linux?.count || 0;
   const gitkCount = gitk?.count || 0;
 
   document.getElementById('big-merged').textContent = merged;
   document.getElementById('stat-total-prs').textContent = totalPRs;
   document.getElementById('stat-jira').textContent = jiraTotal;
-  document.getElementById('stat-kernel-patches').textContent = kernelPatches;
+//   document.getElementById('stat-kernel-patches').textContent = kernelPatches;
 
   const q = document.getElementById('quick-list');
   q.innerHTML = `
     <li>GitHub PRs: <strong>${totalPRs}</strong></li>
     <li>GitHub merged: <strong>${merged}</strong></li>
     <li>Kafka JIRA: <strong>${jiraTotal}</strong></li>
-    <li>Kernel patches (lore): <strong>${kernelPatches}</strong></li>
-    <li>git.kernel.org commits: <strong>${gitkCount}</strong></li>
   `;
 
   fadeIn(document.getElementById('hero-card'), 60);
@@ -156,8 +154,8 @@ async function populate(){
   const latest = [];
   if(gh?.items) latest.push(...gh.items.map(i=>({type:'GitHub', title:i.title, url:i.url, date:i.mergedAt || i.updatedAt})));
   if(jira?.items) latest.push(...jira.items.map(i=>({type:'JIRA', title:i.key+': '+i.fields.summary, url:'https://issues.apache.org/jira/browse/'+i.key, date:i.fields.updated})));
-  if(linux?.items) latest.push(...linux.items.map(i=>({type:'Kernel patch', title:i.subject || i.title, url:i.url || i.link, date:i.date})));
-  if(gitk?.items) latest.push(...gitk.items.map(i=>({type:'git.kernel', title:i.title, url:i.url, date:i.date})));
+//   if(linux?.items) latest.push(...linux.items.map(i=>({type:'Kernel patch', title:i.subject || i.title, url:i.url || i.link, date:i.date})));
+//   if(gitk?.items) latest.push(...gitk.items.map(i=>({type:'git.kernel', title:i.title, url:i.url, date:i.date})));
 
   latest.sort((a,b)=> new Date(b.date) - new Date(a.date));
   const latestEl = document.getElementById('latest-list');

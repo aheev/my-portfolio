@@ -36,14 +36,14 @@ jobs:
         run: |
           python3 scripts/fetch_contributions.py
 
-      - name: Fetch Linux kernel commits & patches
-        env:
-          # store your email in repo secret KERNEL_EMAIL or leave blank to use default in script
-          KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
-          MAX_PAGES: 12
-          SLEEP_BETWEEN_REQUESTS: 0.8
-        run: |
-          python3 scripts/fetch_kernel.py
+#       - name: Fetch Linux kernel commits & patches
+#         env:
+#           # store your email in repo secret KERNEL_EMAIL or leave blank to use default in script
+#           KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
+#           MAX_PAGES: 12
+#           SLEEP_BETWEEN_REQUESTS: 0.8
+#         run: |
+#           python3 scripts/fetch_kernel.py
 
       - name: Generate analytics
         env:

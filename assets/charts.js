@@ -7,8 +7,8 @@ window.renderCharts = async function(analytics){
     const months = tl.months || [];
     const github = tl.github || [];
     const jira = tl.jira || [];
-    const kernel = tl.kernel || [];
-    const gitkernel = tl.gitkernel || [];
+//     const kernel = tl.kernel || [];
+//     const gitkernel = tl.gitkernel || [];
 
     // timeline line chart
     const tctx = document.getElementById('timelineChart').getContext('2d');
@@ -20,8 +20,8 @@ window.renderCharts = async function(analytics){
         datasets:[
           {label:'GitHub PRs', data: github, borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,0.06)', tension:0.3, pointRadius:2},
           {label:'Kafka JIRA', data: jira, borderColor:'#059669', backgroundColor:'rgba(5,150,105,0.04)', tension:0.3, pointRadius:2},
-          {label:'Kernel (lore)', data: kernel, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,0.04)', tension:0.3, pointRadius:2},
-          {label:'git.kernel.org', data: gitkernel, borderColor:'#a855f7', backgroundColor:'rgba(168,85,247,0.04)', tension:0.3, pointRadius:2},
+        //   {label:'Kernel (lore)', data: kernel, borderColor:'#f97316', backgroundColor:'rgba(249,115,22,0.04)', tension:0.3, pointRadius:2},
+        //   {label:'git.kernel.org', data: gitkernel, borderColor:'#a855f7', backgroundColor:'rgba(168,85,247,0.04)', tension:0.3, pointRadius:2},
         ]
       },
       options:{
@@ -34,14 +34,14 @@ window.renderCharts = async function(analytics){
     });
 
     // subsystems doughnut
-    const subs = analytics.subsystems || {};
-    const sctx = document.getElementById('subsystemChart').getContext('2d');
-    if(window.subsystemChart) window.subsystemChart.destroy();
-    window.subsystemChart = new Chart(sctx, {
-      type:'doughnut',
-      data:{ labels:Object.keys(subs), datasets:[{data:Object.values(subs), backgroundColor:generatePalette(Object.keys(subs).length)}] },
-      options:{responsive:true, maintainAspectRatio:false, animation:{duration:700}}
-    });
+//     const subs = analytics.subsystems || {};
+//     const sctx = document.getElementById('subsystemChart').getContext('2d');
+//     if(window.subsystemChart) window.subsystemChart.destroy();
+//     window.subsystemChart = new Chart(sctx, {
+//       type:'doughnut',
+//       data:{ labels:Object.keys(subs), datasets:[{data:Object.values(subs), backgroundColor:generatePalette(Object.keys(subs).length)}] },
+//       options:{responsive:true, maintainAspectRatio:false, animation:{duration:700}}
+//     });
 
     // repos bar
     const repos = analytics.repos || [];
