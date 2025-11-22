@@ -1,110 +1,96 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ally Heev — Open Source Portfolio</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="inner">
-      <div>
-        <h1>Ally Heev <span class="muted">/ @aheev</span></h1>
-        <p class="muted small">Open-source contributions — Apache Kafka · Apache Iceberg · Linux kernel</p>
-      </div>
-      <div>
-        <button id="theme-toggle" title="Toggle theme">🌙</button>
-      </div>
-    </div>
-  </header>
+/* GitHub Premium — polished minimal style + animations */
+:root{
+  --bg-dark: #0b0d0f;
+  --card-dark: #0f1113;
+  --muted-dark: #9aa0a6;
+  --text-dark: #e6eef3;
 
-  <main class="container">
-    <section class="cards">
-      <div class="card">
-        <div class="big" id="merged-count">—</div>
-        <div class="muted">merged PRs</div>
-      </div>
-      <div class="card small">
-        <div>GitHub PRs: <strong id="pr-count">—</strong></div>
-        <div>Kafka JIRA: <strong id="jira-count">—</strong></div>
-        <div>Kernel patches: <strong id="patch-count">—</strong></div>
-      </div>
-    </section>
+  --bg-light: #fbfcfe;
+  --card-light: #ffffff;
+  --muted-light: #6b7280;
+  --text-light: #0b1320;
 
-    <section>
-      <h2>Timeline (monthly)</h2>
-      <canvas id="timelineChart" height="120"></canvas>
-    </section>
-
-    <section class="grid">
-      <div class="card">
-        <h3>Kernel subsystems</h3>
-        <canvas id="subsystemChart" height="160"></canvas>
-      </div>
-      <div class="card">
-        <h3>Top repos (PRs)</h3>
-        <canvas id="reposChart" height="160"></canvas>
-      </div>
-    </section>
-
-    <section>
-      <h2>Latest contributions</h2>
-      <div id="latest">Loading…</div>
-    </section>
-
-    <footer class="footer muted">Site auto-updated via GitHub Actions</footer>
-  </main>
-
-<script>
-async function loadJSON(path){
-  try { const r = await fetch(path, {cache: 'no-store'}); return r.ok ? await r.json() : null }
-  catch(e){ return null }
+  --accent: #2563eb;
+  --radius: 12px;
+  --shadow-dark: 0 10px 30px rgba(2,6,23,0.35);
+  --shadow-light: 0 8px 24px rgba(9,30,66,0.06);
+  --glass: rgba(255,255,255,0.02);
 }
-
-async function init(){
-  const [gh, jira, commits, patches, analytics] = await Promise.all([
-    loadJSON('data/github.json'),
-    loadJSON('data/kafka_jira.json'),
-    loadJSON('data/linux_commits.json'),
-    loadJSON('data/linux_patches.json'),
-    loadJSON('data/analytics.json'),
-  ]);
-
-  document.getElementById('merged-count').textContent = gh?.mergedCount || 0;
-  document.getElementById('pr-count').textContent = (gh?.items?.length || 0);
-  document.getElementById('jira-count').textContent = (jira?.total || 0);
-  document.getElementById('patch-count').textContent = (patches?.patches?.length || 0);
-
-  // latest list
-  const latest = [];
-  if (gh?.items) latest.push(...gh.items.map(i=>({t:'GitHub', title:i.title, url:i.url, date:i.mergedAt||i.updatedAt})));
-  if (jira?.items) latest.push(...jira.items.map(i=>({t:'JIRA', title:i.key+': '+i.fields.summary, url:'https://issues.apache.org/jira/browse/'+i.key, date:i.fields.updated})));
-  if (commits?.commits) latest.push(...commits.commits.map(i=>({t:'Kernel commit', title:i.title, url:i.url, date:i.date})));
-  if (patches?.patches) latest.push(...patches.patches.map(i=>({t:'Kernel patch', title:i.title, url:i.url, date:i.date})));
-  latest.sort((a,b)=> new Date(b.date) - new Date(a.date));
-  const latestEl = document.getElementById('latest');
-  latestEl.innerHTML = '<ul>' + latest.slice(0,20).map(x=>`<li><strong>${x.t}</strong> — <a href="${x.url}" target="_blank">${x.title}</a> <span class="muted">(${new Date(x.date).toLocaleDateString()})</span></li>`).join('') + '</ul>';
-
-  // charts
-  if (analytics && window.renderCharts) window.renderCharts(analytics);
-}
-init();
 
 /* theme */
-const tbtn = document.getElementById('theme-toggle');
-const root = document.documentElement;
-if(localStorage.getItem('theme')==='light') root.setAttribute('data-theme','light');
-tbtn.addEventListener('click', ()=>{
-  const cur = root.getAttribute('data-theme') || 'dark';
-  const next = cur === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  tbtn.textContent = next === 'dark' ? '🌙' : '☀️';
-});
-</script>
+:root[data-theme="dark"]{
+  --bg: var(--bg-dark);
+  --card: var(--card-dark);
+  --muted: var(--muted-dark);
+  --text: var(--text-dark);
+  --shadow: var(--shadow-dark);
+}
+:root[data-theme="light"]{
+  --bg: var(--bg-light);
+  --card: var(--card-light);
+  --muted: var(--muted-light);
+  --text: var(--text-light);
+  --shadow: var(--shadow-light);
+}
+:root{ --bg: var(--bg-dark); --card: var(--card-dark); --muted: var(--muted-dark); --text: var(--text-dark); }
 
-<script src="assets/charts.js"></script>
-</body>
-</html>
+/* base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+a{color:var(--accent);text-decoration:underline}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* header */
+.site-header{border-bottom:1px solid rgba(255,255,255,0.03);padding:18px 0}
+.site-header .inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.brand{flex:1}
+.name{margin:0;font-size:20px;font-weight:700}
+.handle{font-weight:600;color:var(--muted);margin-left:8px;font-size:14px}
+.subtitle{margin:6px 0 0;color:var(--muted);font-size:13px}
+.header-actions{display:flex;align-items:center;gap:12px}
+
+/* chips */
+.nav-chips{display:flex;gap:8px;align-items:center}
+.chip{padding:8px 12px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);cursor:pointer;transition:all .18s}
+.chip:hover{transform:translateY(-1px);border-color:var(--accent);color:var(--text)}
+.chip.active{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-color:var(--accent);color:var(--text);box-shadow:0 6px 18px rgba(2,6,23,0.25)}
+
+/* main layout */
+.main{max-width:1100px;margin:22px auto;padding:0 20px}
+.top-cards{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);transition:transform .18s, box-shadow .18s}
+.card:hover{transform:translateY(-4px)}
+.hero-card{flex:1;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:28px}
+.hero-left{display:flex;flex-direction:column}
+.big-number{font-size:40px;font-weight:700}
+.hero-right{display:flex;gap:18px;align-items:center}
+.small-stat{text-align:right}
+.small-stat span{display:block;font-weight:700;font-size:18px}
+.quick-card{width:300px}
+
+/* analytics */
+.analytics-section{margin-top:10px}
+.section-title{margin:8px 0 12px 2px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card .card-title{margin:0 0 8px 0;font-size:14px;font-weight:700}
+.chart-wrap{height:180px;display:flex;align-items:center}
+
+/* latest */
+.latest-section{margin-top:20px}
+.contrib-list{list-style:none;padding:0;margin:0}
+.contrib-list li{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.03);display:flex;gap:12px;align-items:flex-start;opacity:1;transform:none}
+.badge{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:4px 8px;border-radius:999px;font-size:12px;margin-right:8px}
+
+/* responsive */
+@media (max-width:960px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .top-cards{flex-direction:column}
+  .quick-card{width:100%}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .name{font-size:18px}
+  .big-number{font-size:34px}
+}

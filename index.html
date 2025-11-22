@@ -4,104 +4,213 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ally Heev — Open Source Portfolio</title>
+
   <link rel="stylesheet" href="assets/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="inner">
-      <div>
-        <h1>Ally Heev <span class="muted">/ @aheev</span></h1>
-        <p class="muted small">Open-source contributions — Apache Kafka · Apache Iceberg · Linux kernel</p>
+      <div class="brand">
+        <h1 class="name">Ally Heev <span class="handle">/ @aheev</span></h1>
+        <p class="subtitle">Open-source contributions — Apache Kafka · Apache Iceberg · Linux kernel</p>
       </div>
-      <div>
-        <button id="theme-toggle" title="Toggle theme">🌙</button>
+
+      <div class="header-actions">
+        <nav class="nav-chips" aria-label="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="github">GitHub</button>
+          <button class="chip" data-filter="jira">Kafka JIRA</button>
+          <button class="chip" data-filter="kernel">Kernel (lore)</button>
+          <button class="chip" data-filter="gitkernel">git.kernel.org</button>
+        </nav>
+
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="cards">
-      <div class="card">
-        <div class="big" id="merged-count">—</div>
-        <div class="muted">merged PRs</div>
+  <main class="main">
+    <section class="top-cards">
+      <div class="card hero-card" id="hero-card">
+        <div class="hero-left">
+          <div class="big-number" id="big-merged">—</div>
+          <div class="muted">merged PRs</div>
+        </div>
+        <div class="hero-right">
+          <div class="small-stat"><span id="stat-total-prs">—</span><div class="muted">total PRs</div></div>
+          <div class="small-stat"><span id="stat-jira">—</span><div class="muted">Kafka tickets</div></div>
+          <div class="small-stat"><span id="stat-kernel-patches">—</span><div class="muted">kernel patches</div></div>
+        </div>
       </div>
-      <div class="card small">
-        <div>GitHub PRs: <strong id="pr-count">—</strong></div>
-        <div>Kafka JIRA: <strong id="jira-count">—</strong></div>
-        <div>Kernel patches: <strong id="patch-count">—</strong></div>
+
+      <aside class="card quick-card" id="quick-card">
+        <h4 class="card-title">Quick counts</h4>
+        <ul class="quick-list" id="quick-list">
+          <li>GitHub PRs: —</li>
+          <li>GitHub merged: —</li>
+          <li>Kafka JIRA: —</li>
+          <li>Kernel patches (lore): —</li>
+          <li>git.kernel.org commits: —</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="analytics-section">
+      <h2 class="section-title">Analytics & timelines</h2>
+
+      <div class="grid">
+        <div class="card chart-card" data-anim>
+          <h3 class="card-title">Monthly timeline</h3>
+          <div class="chart-wrap"><canvas id="timelineChart" aria-label="Monthly activity timeline"></canvas></div>
+        </div>
+
+        <div class="card chart-card" data-anim>
+          <h3 class="card-title">Kernel subsystems</h3>
+          <div class="chart-wrap"><canvas id="subsystemChart" aria-label="Kernel subsystems"></canvas></div>
+        </div>
+
+        <div class="card chart-card" data-anim>
+          <h3 class="card-title">Top repos (PRs)</h3>
+          <div class="chart-wrap"><canvas id="reposChart" aria-label="Top repositories"></canvas></div>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Timeline (monthly)</h2>
-      <canvas id="timelineChart" height="120"></canvas>
+    <section class="latest-section">
+      <h2 class="section-title">Latest contributions</h2>
+      <div id="latest-list" class="latest-list">Loading…</div>
     </section>
-
-    <section class="grid">
-      <div class="card">
-        <h3>Kernel subsystems</h3>
-        <canvas id="subsystemChart" height="160"></canvas>
-      </div>
-      <div class="card">
-        <h3>Top repos (PRs)</h3>
-        <canvas id="reposChart" height="160"></canvas>
-      </div>
-    </section>
-
-    <section>
-      <h2>Latest contributions</h2>
-      <div id="latest">Loading…</div>
-    </section>
-
-    <footer class="footer muted">Site auto-updated via GitHub Actions</footer>
   </main>
 
+  <footer class="site-footer" aria-hidden="true"></footer>
+
 <script>
+/* Data loader */
 async function loadJSON(path){
-  try { const r = await fetch(path, {cache: 'no-store'}); return r.ok ? await r.json() : null }
-  catch(e){ return null }
+  try { const r = await fetch(path, {cache: 'no-store'}); return r.ok ? await r.json() : null; }
+  catch(e){ return null; }
 }
 
-async function init(){
-  const [gh, jira, commits, patches, analytics] = await Promise.all([
+/* Anim helpers */
+function fadeIn(el, delay=0){
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(8px)';
+  requestAnimationFrame(()=> {
+    setTimeout(()=> {
+      el.style.transition = 'opacity 420ms cubic-bezier(.2,.9,.2,1), transform 420ms cubic-bezier(.2,.9,.2,1)';
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    }, delay);
+  });
+}
+
+function staggerFadeInList(container){
+  const items = Array.from(container.querySelectorAll('li'));
+  items.forEach((li, i) => {
+    li.style.opacity = 0;
+    li.style.transform = 'translateY(8px)';
+    setTimeout(()=> {
+      li.style.transition = 'opacity 360ms ease, transform 360ms ease';
+      li.style.opacity = 1;
+      li.style.transform = 'translateY(0)';
+    }, 60 * i);
+  });
+}
+
+/* Populate page */
+async function populate(){
+  const [gh, jira, linux, gitk, analytics] = await Promise.all([
     loadJSON('data/github.json'),
     loadJSON('data/kafka_jira.json'),
-    loadJSON('data/linux_commits.json'),
     loadJSON('data/linux_patches.json'),
-    loadJSON('data/analytics.json'),
+    loadJSON('data/gitkernel.json'),
+    loadJSON('data/analytics.json')
   ]);
 
-  document.getElementById('merged-count').textContent = gh?.mergedCount || 0;
-  document.getElementById('pr-count').textContent = (gh?.items?.length || 0);
-  document.getElementById('jira-count').textContent = (jira?.total || 0);
-  document.getElementById('patch-count').textContent = (patches?.patches?.length || 0);
+  // stats
+  const totalPRs = gh?.items?.length || 0;
+  const merged = gh?.mergedCount || 0;
+  const jiraTotal = jira?.total || 0;
+  const kernelPatches = linux?.count || 0;
+  const gitkCount = gitk?.count || 0;
+
+  document.getElementById('big-merged').textContent = merged;
+  document.getElementById('stat-total-prs').textContent = totalPRs;
+  document.getElementById('stat-jira').textContent = jiraTotal;
+  document.getElementById('stat-kernel-patches').textContent = kernelPatches;
+
+  const q = document.getElementById('quick-list');
+  q.innerHTML = `
+    <li>GitHub PRs: <strong>${totalPRs}</strong></li>
+    <li>GitHub merged: <strong>${merged}</strong></li>
+    <li>Kafka JIRA: <strong>${jiraTotal}</strong></li>
+    <li>Kernel patches (lore): <strong>${kernelPatches}</strong></li>
+    <li>git.kernel.org commits: <strong>${gitkCount}</strong></li>
+  `;
+
+  fadeIn(document.getElementById('hero-card'), 60);
+  fadeIn(document.getElementById('quick-card'), 120);
 
   // latest list
   const latest = [];
-  if (gh?.items) latest.push(...gh.items.map(i=>({t:'GitHub', title:i.title, url:i.url, date:i.mergedAt||i.updatedAt})));
-  if (jira?.items) latest.push(...jira.items.map(i=>({t:'JIRA', title:i.key+': '+i.fields.summary, url:'https://issues.apache.org/jira/browse/'+i.key, date:i.fields.updated})));
-  if (commits?.commits) latest.push(...commits.commits.map(i=>({t:'Kernel commit', title:i.title, url:i.url, date:i.date})));
-  if (patches?.patches) latest.push(...patches.patches.map(i=>({t:'Kernel patch', title:i.title, url:i.url, date:i.date})));
+  if(gh?.items) latest.push(...gh.items.map(i=>({type:'GitHub', title:i.title, url:i.url, date:i.mergedAt || i.updatedAt})));
+  if(jira?.items) latest.push(...jira.items.map(i=>({type:'JIRA', title:i.key+': '+i.fields.summary, url:'https://issues.apache.org/jira/browse/'+i.key, date:i.fields.updated})));
+  if(linux?.items) latest.push(...linux.items.map(i=>({type:'Kernel patch', title:i.subject || i.title, url:i.url || i.link, date:i.date})));
+  if(gitk?.items) latest.push(...gitk.items.map(i=>({type:'git.kernel', title:i.title, url:i.url, date:i.date})));
+
   latest.sort((a,b)=> new Date(b.date) - new Date(a.date));
-  const latestEl = document.getElementById('latest');
-  latestEl.innerHTML = '<ul>' + latest.slice(0,20).map(x=>`<li><strong>${x.t}</strong> — <a href="${x.url}" target="_blank">${x.title}</a> <span class="muted">(${new Date(x.date).toLocaleDateString()})</span></li>`).join('') + '</ul>';
+  const latestEl = document.getElementById('latest-list');
+  if(!latest.length) latestEl.innerHTML = '<p class="muted">No contributions found.</p>';
+  else {
+    latestEl.innerHTML = '<ul class="contrib-list">' + latest.slice(0,30).map(x =>
+      `<li><span class="badge">${x.type}</span> <a href="${x.url}" target="_blank" rel="noopener noreferrer">${x.title}</a> <span class="muted small">— ${x.date ? new Date(x.date).toLocaleDateString() : ''}</span></li>`
+    ).join('') + '</ul>';
+    staggerFadeInList(latestEl);
+  }
 
-  // charts
-  if (analytics && window.renderCharts) window.renderCharts(analytics);
+  // init charts with animated reveal once canvas painted
+  if(analytics && window.renderCharts){
+    window.renderCharts(analytics).then(()=> {
+      document.querySelectorAll('[data-anim]').forEach((el, i)=> fadeIn(el, 200 + i*80));
+    }).catch(()=> {
+      document.querySelectorAll('[data-anim]').forEach((el, i)=> fadeIn(el, 200 + i*80));
+    });
+  } else {
+    document.querySelectorAll('[data-anim]').forEach((el, i)=> fadeIn(el, 200 + i*80));
+  }
 }
-init();
 
-/* theme */
+populate();
+
+/* Theme toggle (persistent + smooth) */
 const tbtn = document.getElementById('theme-toggle');
-const root = document.documentElement;
-if(localStorage.getItem('theme')==='light') root.setAttribute('data-theme','light');
+const doc = document.documentElement;
+(function initTheme(){
+  const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark');
+  doc.setAttribute('data-theme', saved);
+  tbtn.textContent = saved === 'dark' ? '🌙' : '☀️';
+})();
 tbtn.addEventListener('click', ()=>{
-  const cur = root.getAttribute('data-theme') || 'dark';
+  const cur = doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   const next = cur === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
+  doc.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   tbtn.textContent = next === 'dark' ? '🌙' : '☀️';
+});
+
+/* simple client-side filter */
+document.querySelectorAll('.chip').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const filter = b.getAttribute('data-filter');
+    document.querySelectorAll('.badge').forEach(bd=>{
+      const li = bd.closest('li');
+      if(filter === 'all') li.style.display = '';
+      else li.style.display = bd.textContent.toLowerCase().includes(filter) ? '' : 'none';
+    });
+  });
 });
 </script>
 
