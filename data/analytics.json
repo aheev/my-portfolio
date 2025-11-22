@@ -1,145 +1,42 @@
 {
-  "totals": {
-    "github_prs": 5,
-    "github_merged": 2,
-    "jira_total": 2,
-    "kernel_commits": 0,
-    "kernel_patches": 0
-  },
   "timeline": {
     "months": [
-      "2025-11",
-      "2025-12",
-      "2026-01",
-      "2026-02",
-      "2026-03",
-      "2026-04",
-      "2026-05",
-      "2026-06",
-      "2026-07",
-      "2026-08",
-      "2026-09",
-      "2026-10",
-      "2026-11",
-      "2026-12",
-      "2027-01",
-      "2027-02",
-      "2027-03",
-      "2027-04",
-      "2027-05",
-      "2027-06",
-      "2027-07",
-      "2027-08",
-      "2027-09",
-      "2027-10"
+      "2025-08",
+      "2025-09"
     ],
-    "github": [
-      2,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+    "github_prs": [
+      1,
+      1
+    ],
+    "github_issues": [
       0,
       0
     ],
     "jira": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+      2
+    ],
+    "kernel_commits": [
       0,
       0
     ],
-    "kernel": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
+    "kernel_patches": [
       0,
       0
     ],
     "gitkernel": [
       0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ]
   },
-  "subsystems": {},
-  "repos": [
+  "totals": {
+    "github_prs": 5,
+    "github_issues": 0,
+    "jira_total": 2,
+    "kernel_commits": 0,
+    "kernel_patches": 0
+  },
+  "top_repos": [
     {
       "name": "apache/kafka",
       "prs": 2
@@ -155,6 +52,58 @@
     {
       "name": "deepanshu1422/List-Of-Open-Source-Internships-Programs",
       "prs": 1
+    }
+  ],
+  "kernel_subsystems": {},
+  "recent": [
+    {
+      "source": "GitHub PR",
+      "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
+      "url": "https://github.com/apache/kafka/pull/20385",
+      "date": "2025-09-23T09:01:40Z",
+      "repo": "apache/kafka"
+    },
+    {
+      "source": "JIRA",
+      "title": "KAFKA-19672: Producer performance test failing in parsing aggregate statistics",
+      "url": "https://issues.apache.org/jira/rest/api/2/issue/13628182",
+      "date": "2025-09-07T16:55:52Z",
+      "jira_key": "KAFKA-19672"
+    },
+    {
+      "source": "JIRA",
+      "title": "KAFKA-19671: benchmark_test is throwing `NullPointerException`",
+      "url": "https://issues.apache.org/jira/rest/api/2/issue/13628142",
+      "date": "2025-09-04T17:13:18Z",
+      "jira_key": "KAFKA-19671"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "Removing dead programs",
+      "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
+      "date": "2025-08-29T08:21:27Z",
+      "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
+      "url": "https://github.com/paulgazz/kmax/pull/301",
+      "date": null,
+      "repo": "paulgazz/kmax"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "Core: IRC: Implement Events Endpoint Request & Response Objects",
+      "url": "https://github.com/apache/iceberg/pull/14142",
+      "date": null,
+      "repo": "apache/iceberg"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "KAFKA-15038: Replace topicIdByPartitionMap with MetadataCache instance in RemoteLogManager",
+      "url": "https://github.com/apache/kafka/pull/20256",
+      "date": null,
+      "repo": "apache/kafka"
     }
   ]
 }
