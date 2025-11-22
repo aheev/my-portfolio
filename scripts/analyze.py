@@ -176,9 +176,9 @@ gh_items = ensure_list(gh_items)
 gh_issue_items = gh_issues.get("items") if isinstance(gh_issues.get("items"), list) else gh_issues.get("issues") or []
 gh_issue_items = ensure_list(gh_issue_items)
 jira_items = ensure_list(jira.get("items") or jira.get("issues") or [])
-commit_items = ensure_list(commits.get("commits") or commits.get("items") or [])
-patch_items = ensure_list(patches.get("patches") or patches.get("items") or [])
-gitk_items = ensure_list(gitk.get("items") or [])
+# commit_items = ensure_list(commits.get("commits") or commits.get("items") or [])
+# patch_items = ensure_list(patches.get("patches") or patches.get("items") or [])
+# gitk_items = ensure_list(gitk.get("items") or [])
 
 # ------------------ Aggregate events ------------------
 # We will build month counters for the past N months based on the available data (last 24 months by default)
