@@ -12,7 +12,7 @@
       "url": "https://github.com/apache/iceberg/pull/14142",
       "merged": false,
       "mergedAt": null,
-      "updatedAt": "2025-11-12T14:15:43Z"
+      "updatedAt": "2025-12-01T06:25:26Z"
     },
     {
       "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
