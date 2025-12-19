@@ -2,19 +2,23 @@
   "timeline": {
     "months": [
       "2025-08",
-      "2025-09"
+      "2025-09",
+      "2025-12"
     ],
     "github_prs": [
+      1,
       1,
       1
     ],
     "github_issues": [
       0,
+      0,
       0
     ],
     "jira": [
       0,
-      2
+      2,
+      0
     ]
   },
   "totals": {
@@ -43,6 +47,13 @@
   "recent": [
     {
       "source": "GitHub PR",
+      "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
+      "url": "https://github.com/paulgazz/kmax/pull/301",
+      "date": "2025-12-18T21:52:48Z",
+      "repo": "paulgazz/kmax"
+    },
+    {
+      "source": "GitHub PR",
       "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
       "url": "https://github.com/apache/kafka/pull/20385",
       "date": "2025-09-23T09:01:40Z",
@@ -68,13 +79,6 @@
       "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
       "date": "2025-08-29T08:21:27Z",
       "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
-    },
-    {
-      "source": "GitHub PR",
-      "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
-      "url": "https://github.com/paulgazz/kmax/pull/301",
-      "date": null,
-      "repo": "paulgazz/kmax"
     },
     {
       "source": "GitHub PR",

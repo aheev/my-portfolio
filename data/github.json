@@ -3,9 +3,9 @@
     {
       "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
       "url": "https://github.com/paulgazz/kmax/pull/301",
-      "merged": false,
-      "mergedAt": null,
-      "updatedAt": "2025-11-13T08:33:45Z"
+      "merged": true,
+      "mergedAt": "2025-12-18T21:52:48Z",
+      "updatedAt": "2025-12-18T21:52:49Z"
     },
     {
       "title": "Core: IRC: Implement Events Endpoint Request & Response Objects",
@@ -36,6 +36,6 @@
       "updatedAt": "2025-12-03T03:47:49Z"
     }
   ],
-  "mergedCount": 2,
-  "openCount": 3
+  "mergedCount": 3,
+  "openCount": 2
 }
