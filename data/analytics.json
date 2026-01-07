@@ -22,7 +22,7 @@
     ]
   },
   "totals": {
-    "github_prs": 5,
+    "github_prs": 6,
     "github_issues": 0,
     "jira_total": 2
   },
@@ -30,6 +30,10 @@
     {
       "name": "apache/kafka",
       "prs": 2
+    },
+    {
+      "name": "LadybugDB/mcp-server-ladybug",
+      "prs": 1
     },
     {
       "name": "paulgazz/kmax",
@@ -79,6 +83,13 @@
       "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
       "date": "2025-08-29T08:21:27Z",
       "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "add substring indexing differences with Neo4j",
+      "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
+      "date": null,
+      "repo": "LadybugDB/mcp-server-ladybug"
     },
     {
       "source": "GitHub PR",

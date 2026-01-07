@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "add substring indexing differences with Neo4j",
+      "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2026-01-07T06:08:11Z"
+    },
+    {
       "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
       "url": "https://github.com/paulgazz/kmax/pull/301",
       "merged": true,
@@ -37,5 +44,5 @@
     }
   ],
   "mergedCount": 3,
-  "openCount": 2
+  "openCount": 3
 }
