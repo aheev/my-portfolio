@@ -3,9 +3,9 @@
     {
       "title": "add substring indexing differences with Neo4j",
       "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
-      "merged": false,
-      "mergedAt": null,
-      "updatedAt": "2026-01-07T06:08:11Z"
+      "merged": true,
+      "mergedAt": "2026-01-07T07:27:38Z",
+      "updatedAt": "2026-01-07T07:27:38Z"
     },
     {
       "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
@@ -19,7 +19,7 @@
       "url": "https://github.com/apache/iceberg/pull/14142",
       "merged": false,
       "mergedAt": null,
-      "updatedAt": "2025-12-08T16:50:13Z"
+      "updatedAt": "2026-01-08T00:20:02Z"
     },
     {
       "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
@@ -43,6 +43,6 @@
       "updatedAt": "2026-01-02T03:54:56Z"
     }
   ],
-  "mergedCount": 3,
-  "openCount": 3
+  "mergedCount": 4,
+  "openCount": 2
 }

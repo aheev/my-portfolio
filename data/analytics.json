@@ -3,9 +3,11 @@
     "months": [
       "2025-08",
       "2025-09",
-      "2025-12"
+      "2025-12",
+      "2026-01"
     ],
     "github_prs": [
+      1,
       1,
       1,
       1
@@ -13,11 +15,13 @@
     "github_issues": [
       0,
       0,
+      0,
       0
     ],
     "jira": [
       0,
       2,
+      0,
       0
     ]
   },
@@ -49,6 +53,13 @@
     }
   ],
   "recent": [
+    {
+      "source": "GitHub PR",
+      "title": "add substring indexing differences with Neo4j",
+      "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
+      "date": "2026-01-07T07:27:38Z",
+      "repo": "LadybugDB/mcp-server-ladybug"
+    },
     {
       "source": "GitHub PR",
       "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
@@ -83,13 +94,6 @@
       "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
       "date": "2025-08-29T08:21:27Z",
       "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
-    },
-    {
-      "source": "GitHub PR",
-      "title": "add substring indexing differences with Neo4j",
-      "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
-      "date": null,
-      "repo": "LadybugDB/mcp-server-ladybug"
     },
     {
       "source": "GitHub PR",
