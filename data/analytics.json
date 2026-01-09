@@ -10,7 +10,7 @@
       1,
       1,
       1,
-      1
+      2
     ],
     "github_issues": [
       0,
@@ -26,7 +26,7 @@
     ]
   },
   "totals": {
-    "github_prs": 6,
+    "github_prs": 8,
     "github_issues": 0,
     "jira_total": 2
   },
@@ -34,6 +34,14 @@
     {
       "name": "apache/kafka",
       "prs": 2
+    },
+    {
+      "name": "LadybugDB/ladybug-docs",
+      "prs": 1
+    },
+    {
+      "name": "LadybugDB/ladybug",
+      "prs": 1
     },
     {
       "name": "LadybugDB/mcp-server-ladybug",
@@ -53,6 +61,13 @@
     }
   ],
   "recent": [
+    {
+      "source": "GitHub PR",
+      "title": "fix error check in TestingDataTypesSqlite test",
+      "url": "https://github.com/LadybugDB/ladybug/pull/138",
+      "date": "2026-01-08T21:03:22Z",
+      "repo": "LadybugDB/ladybug"
+    },
     {
       "source": "GitHub PR",
       "title": "add substring indexing differences with Neo4j",
@@ -94,6 +109,13 @@
       "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
       "date": "2025-08-29T08:21:27Z",
       "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "fix broken links",
+      "url": "https://github.com/LadybugDB/ladybug-docs/pull/9",
+      "date": null,
+      "repo": "LadybugDB/ladybug-docs"
     },
     {
       "source": "GitHub PR",

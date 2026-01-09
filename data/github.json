@@ -1,6 +1,20 @@
 {
   "items": [
     {
+      "title": "fix broken links",
+      "url": "https://github.com/LadybugDB/ladybug-docs/pull/9",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2026-01-08T11:59:15Z"
+    },
+    {
+      "title": "fix error check in TestingDataTypesSqlite test",
+      "url": "https://github.com/LadybugDB/ladybug/pull/138",
+      "merged": true,
+      "mergedAt": "2026-01-08T21:03:22Z",
+      "updatedAt": "2026-01-08T21:03:22Z"
+    },
+    {
       "title": "add substring indexing differences with Neo4j",
       "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
       "merged": true,
@@ -19,7 +33,7 @@
       "url": "https://github.com/apache/iceberg/pull/14142",
       "merged": false,
       "mergedAt": null,
-      "updatedAt": "2026-01-08T00:20:02Z"
+      "updatedAt": "2026-01-09T00:19:21Z"
     },
     {
       "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
@@ -43,6 +57,6 @@
       "updatedAt": "2026-01-02T03:54:56Z"
     }
   ],
-  "mergedCount": 4,
-  "openCount": 2
+  "mergedCount": 5,
+  "openCount": 3
 }
