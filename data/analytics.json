@@ -26,21 +26,21 @@
     ]
   },
   "totals": {
-    "github_prs": 8,
+    "github_prs": 9,
     "github_issues": 0,
     "jira_total": 2
   },
   "top_repos": [
+    {
+      "name": "LadybugDB/ladybug",
+      "prs": 2
+    },
     {
       "name": "apache/kafka",
       "prs": 2
     },
     {
       "name": "LadybugDB/ladybug-docs",
-      "prs": 1
-    },
-    {
-      "name": "LadybugDB/ladybug",
       "prs": 1
     },
     {
@@ -109,6 +109,13 @@
       "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
       "date": "2025-08-29T08:21:27Z",
       "repo": "deepanshu1422/List-Of-Open-Source-Internships-Programs"
+    },
+    {
+      "source": "GitHub PR",
+      "title": "make datasets CLI importable",
+      "url": "https://github.com/LadybugDB/ladybug/pull/147",
+      "date": null,
+      "repo": "LadybugDB/ladybug"
     },
     {
       "source": "GitHub PR",

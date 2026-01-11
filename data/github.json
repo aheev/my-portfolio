@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "make datasets CLI importable",
+      "url": "https://github.com/LadybugDB/ladybug/pull/147",
+      "merged": false,
+      "mergedAt": null,
+      "updatedAt": "2026-01-11T06:40:33Z"
+    },
+    {
       "title": "fix broken links",
       "url": "https://github.com/LadybugDB/ladybug-docs/pull/9",
       "merged": false,
@@ -58,5 +65,5 @@
     }
   ],
   "mergedCount": 5,
-  "openCount": 3
+  "openCount": 4
 }
