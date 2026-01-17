@@ -2,8 +2,11 @@ name: Update portfolio and deploy
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 0 * * 0"
 
 permissions:
   contents: write
@@ -30,20 +33,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests PyGithub beautifulsoup4 lxml
 
-      - name: Fetch GitHub contributions
+      - name: Fetch all contributions (GitHub, Jira, Kernel, Blogs)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KERNEL_EMAIL: 'allyheev@gmail.com'
         run: |
           python3 scripts/fetch_contributions.py
-
-#       - name: Fetch Linux kernel commits & patches
-#         env:
-#           # store your email in repo secret KERNEL_EMAIL or leave blank to use default in script
-#           KERNEL_EMAIL: ${{ secrets.KERNEL_EMAIL }}
-#           MAX_PAGES: 12
-#           SLEEP_BETWEEN_REQUESTS: 0.8
-#         run: |
-#           python3 scripts/fetch_kernel.py
 
       - name: Generate analytics
         env:
@@ -51,17 +46,6 @@ jobs:
         run: |
           python3 scripts/analyze.py
 
-      - name: Commit data
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/*.json || true
-          if ! git diff --cached --quiet; then
-            git commit -m "Update data & analytics"
-            git push
-          else
-            echo "No changes to commit"
-          fi
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
