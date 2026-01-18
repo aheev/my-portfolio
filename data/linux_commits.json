@@ -1,0 +1,40 @@
+{
+  "commits": [
+    {
+      "title": "checkpatch: add uninitialized pointer with __free attribute check",
+      "url": "https://github.com/torvalds/linux/commit/01da5216c572f6f8fca4e272451aad6c273b0d57",
+      "date": "2025-12-03T20:58:49.000+05:30",
+      "subsystem": "linux"
+    },
+    {
+      "title": "crypto: asymmetric_keys - fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/79492d5adf456051908878816f1682144962be75",
+      "date": "2025-11-11T19:06:29.000+05:30",
+      "subsystem": "linux"
+    },
+    {
+      "title": "tee: qcomtee: fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/ac5ae0a5ce22640f73677d40730a37f43df442d1",
+      "date": "2025-11-11T13:26:42.000+05:30",
+      "subsystem": "linux"
+    },
+    {
+      "title": "scsi: scsi_debug: Fix uninitialized pointers with __free attr",
+      "url": "https://github.com/torvalds/linux/commit/3813d28b2b12dea8f44a6828b9c30b38208d3fc5",
+      "date": "2025-11-05T19:44:43.000+05:30",
+      "subsystem": "linux"
+    },
+    {
+      "title": "Documentation: fix dev-tools broken links in translations",
+      "url": "https://github.com/torvalds/linux/commit/d0ef999061213a45188bb03d2b185158bfa22909",
+      "date": "2025-10-20T16:16:30.000+05:30",
+      "subsystem": "linux"
+    },
+    {
+      "title": "kselftest: mm: fix typos in test_vmalloc.sh",
+      "url": "https://github.com/torvalds/linux/commit/940b1be22578dc67a0aa78338177b97b9a13eb8b",
+      "date": "2025-08-23T22:32:08.000+05:30",
+      "subsystem": "linux"
+    }
+  ]
+}

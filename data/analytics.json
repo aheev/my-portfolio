@@ -1,0 +1,264 @@
+{
+  "updated": "2026-01-18T01:22:24.623051",
+  "stats": {
+    "github": 11,
+    "jira": 2,
+    "blogs": 1,
+    "kernel": 6
+  },
+  "languages": {
+    "C": 7,
+    "C++": 4,
+    "Java": 3,
+    "MDX": 1,
+    "Python": 1
+  },
+  "chart": {
+    "labels": [
+      "2025-12-20",
+      "2025-12-21",
+      "2025-12-22",
+      "2025-12-23",
+      "2025-12-24",
+      "2025-12-25",
+      "2025-12-26",
+      "2025-12-27",
+      "2025-12-28",
+      "2025-12-29",
+      "2025-12-30",
+      "2025-12-31",
+      "2026-01-01",
+      "2026-01-02",
+      "2026-01-03",
+      "2026-01-04",
+      "2026-01-05",
+      "2026-01-06",
+      "2026-01-07",
+      "2026-01-08",
+      "2026-01-09",
+      "2026-01-10",
+      "2026-01-11",
+      "2026-01-12",
+      "2026-01-13",
+      "2026-01-14",
+      "2026-01-15",
+      "2026-01-16",
+      "2026-01-17",
+      "2026-01-18"
+    ],
+    "data": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      2,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  "feed": [
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "tests: make datatests cli importable v2",
+      "url": "https://github.com/LadybugDB/ladybug/pull/153",
+      "date": "2026-01-17T13:18:29Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "make datasets CLI importable",
+      "url": "https://github.com/LadybugDB/ladybug/pull/147",
+      "date": "2026-01-13T18:48:21Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix broken links",
+      "url": "https://github.com/LadybugDB/ladybug-docs/pull/9",
+      "date": "2026-01-13T04:30:17Z",
+      "subtitle": "LadybugDB/ladybug-docs",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "remove stringFormat",
+      "url": "https://github.com/LadybugDB/ladybug/pull/150",
+      "date": "2026-01-12T19:57:48Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix error check in TestingDataTypesSqlite test",
+      "url": "https://github.com/LadybugDB/ladybug/pull/138",
+      "date": "2026-01-08T21:03:22Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add substring indexing differences with Neo4j",
+      "url": "https://github.com/LadybugDB/mcp-server-ladybug/pull/1",
+      "date": "2026-01-07T07:27:38Z",
+      "subtitle": "LadybugDB/mcp-server-ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix implicit-[int/declaration] errors in bconf.tab.c",
+      "url": "https://github.com/paulgazz/kmax/pull/301",
+      "date": "2025-12-18T21:52:48Z",
+      "subtitle": "paulgazz/kmax",
+      "meta": "merged"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "My journey to Linux Kernel Mentorship Fall 2025",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/my-journey-to-linux-kernel-mentorship-fall-2025-lp9",
+      "date": "2025-12-09T08:09:02Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "checkpatch: add uninitialized pointer with __free attribute check",
+      "url": "https://github.com/torvalds/linux/commit/01da5216c572f6f8fca4e272451aad6c273b0d57",
+      "date": "2025-12-03T20:58:49.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "crypto: asymmetric_keys - fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/79492d5adf456051908878816f1682144962be75",
+      "date": "2025-11-11T19:06:29.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "tee: qcomtee: fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/ac5ae0a5ce22640f73677d40730a37f43df442d1",
+      "date": "2025-11-11T13:26:42.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "scsi: scsi_debug: Fix uninitialized pointers with __free attr",
+      "url": "https://github.com/torvalds/linux/commit/3813d28b2b12dea8f44a6828b9c30b38208d3fc5",
+      "date": "2025-11-05T19:44:43.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "Documentation: fix dev-tools broken links in translations",
+      "url": "https://github.com/torvalds/linux/commit/d0ef999061213a45188bb03d2b185158bfa22909",
+      "date": "2025-10-20T16:16:30.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "KAFKA-19624: Improve consistency of command-line arguments for consumer performance tests",
+      "url": "https://github.com/apache/kafka/pull/20385",
+      "date": "2025-09-23T09:01:40Z",
+      "subtitle": "apache/kafka",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Core: IRC: Implement Events Endpoint Request & Response Objects",
+      "url": "https://github.com/apache/iceberg/pull/14142",
+      "date": "2025-09-21T16:50:57Z",
+      "subtitle": "apache/iceberg",
+      "meta": "open"
+    },
+    {
+      "source": "jira",
+      "icon": "ticket",
+      "title": "KAFKA-19672: Producer performance test failing in parsing aggregate statistics",
+      "url": "https://issues.apache.org/jira/browse/KAFKA-19672",
+      "date": "2025-09-05T06:52:47.000+0000",
+      "subtitle": "Apache Kafka",
+      "meta": "open"
+    },
+    {
+      "source": "jira",
+      "icon": "ticket",
+      "title": "KAFKA-19671: benchmark_test is throwing `NullPointerException`",
+      "url": "https://issues.apache.org/jira/browse/KAFKA-19671",
+      "date": "2025-09-04T17:13:18.000+0000",
+      "subtitle": "Apache Kafka",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Removing dead programs",
+      "url": "https://github.com/deepanshu1422/List-Of-Open-Source-Internships-Programs/pull/151",
+      "date": "2025-08-29T08:21:27Z",
+      "subtitle": "deepanshu1422/List-Of-Open-Source-Internships-Programs",
+      "meta": "merged"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "kselftest: mm: fix typos in test_vmalloc.sh",
+      "url": "https://github.com/torvalds/linux/commit/940b1be22578dc67a0aa78338177b97b9a13eb8b",
+      "date": "2025-08-23T22:32:08.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "KAFKA-15038: Replace topicIdByPartitionMap with MetadataCache instance in RemoteLogManager",
+      "url": "https://github.com/apache/kafka/pull/20256",
+      "date": "2025-07-29T13:12:26Z",
+      "subtitle": "apache/kafka",
+      "meta": "closed"
+    }
+  ]
+}
