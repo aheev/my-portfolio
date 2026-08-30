@@ -1,0 +1,696 @@
+{
+  "updated": "2026-08-30T00:21:16.301557",
+  "stats": {
+    "github": 50,
+    "jira": 2,
+    "blogs": 7,
+    "kernel": 9
+  },
+  "languages": {
+    "C++": 17,
+    "C": 9,
+    "Python": 8,
+    "TypeScript": 6,
+    "Text": 4
+  },
+  "chart": {
+    "labels": [
+      "2026-08-01",
+      "2026-08-02",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06",
+      "2026-08-07",
+      "2026-08-08",
+      "2026-08-09",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-15",
+      "2026-08-16",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20",
+      "2026-08-21",
+      "2026-08-22",
+      "2026-08-23",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29",
+      "2026-08-30"
+    ],
+    "data": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "feed": [
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "automate version update",
+      "url": "https://github.com/LadybugDB/bugscope/pull/21",
+      "date": "2026-07-30T14:02:18Z",
+      "subtitle": "LadybugDB/bugscope",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "[WIP] release 0.18.3",
+      "url": "https://github.com/LadybugDB/ladybug-debian/pull/4",
+      "date": "2026-07-22T16:56:48Z",
+      "subtitle": "LadybugDB/ladybug-debian",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "release 0.18.2",
+      "url": "https://github.com/LadybugDB/ladybug-debian/pull/3",
+      "date": "2026-07-21T11:03:54Z",
+      "subtitle": "LadybugDB/ladybug-debian",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add upstream tag lookup to release workflow",
+      "url": "https://github.com/LadybugDB/ladybug-debian/pull/2",
+      "date": "2026-07-21T09:06:31Z",
+      "subtitle": "LadybugDB/ladybug-debian",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "chore(ci) : expand lib targets",
+      "url": "https://github.com/lance-format/lance-c/pull/50",
+      "date": "2026-06-24T13:44:23Z",
+      "subtitle": "lance-format/lance-c",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Add lance datasets",
+      "url": "https://github.com/LadybugDB/dataset/pull/6",
+      "date": "2026-06-23T08:27:38Z",
+      "subtitle": "LadybugDB/dataset",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Generalize table storage and scans",
+      "url": "https://github.com/LadybugDB/ladybug/pull/614",
+      "date": "2026-06-23T08:26:41Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add lance extension",
+      "url": "https://github.com/LadybugDB/extensions/pull/18",
+      "date": "2026-06-23T08:26:35Z",
+      "subtitle": "LadybugDB/extensions",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add lance tables support",
+      "url": "https://github.com/LadybugDB/ladybug/pull/613",
+      "date": "2026-06-23T08:25:54Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "feat(C/C++): add C/C++ namespace SDK",
+      "url": "https://github.com/lance-format/lance-namespace/pull/357",
+      "date": "2026-06-21T15:11:47Z",
+      "subtitle": "lance-format/lance-namespace",
+      "meta": "open"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "replace custom combine_chunks with ChunkedArray.combine_chunks",
+      "url": "https://github.com/Ladybug-Memory/icebug/pull/41",
+      "date": "2026-06-18T23:25:49Z",
+      "subtitle": "Ladybug-Memory/icebug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add Ladybug Icebug Community Detection notebook",
+      "url": "https://github.com/LadybugDB/ladybug-icebug-notebooks/pull/3",
+      "date": "2026-06-17T15:04:20Z",
+      "subtitle": "LadybugDB/ladybug-icebug-notebooks",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add HTTP range requests note",
+      "url": "https://github.com/LadybugDB/ladybug-docs/pull/28",
+      "date": "2026-06-17T15:00:30Z",
+      "subtitle": "LadybugDB/ladybug-docs",
+      "meta": "merged"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "bugscope 0.17.1",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/bugscope-0171-4cp3",
+      "date": "2026-06-07T14:39:01Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add zizmor action",
+      "url": "https://github.com/LadybugDB/ladybug/pull/571",
+      "date": "2026-06-06T16:39:17Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "Want to study the internals of LadybugDB, a fast scalable, embedded graph database?\r\n\r\nHere: https://aheev.github.io/ladybug-wiki/",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/want-to-study-the-internals-of-ladybugdb-a-fast-scalable-embedded-graph-database-here-2b94",
+      "date": "2026-06-06T12:56:29Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "bump axios to 0.16.0",
+      "url": "https://github.com/LadybugDB/api-server/pull/8",
+      "date": "2026-06-04T13:22:13Z",
+      "subtitle": "LadybugDB/api-server",
+      "meta": "open"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "LadybugDB rpm and debian pkgs are out",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/httpsxcomallyheevstatus2062366661311877375-4kbe",
+      "date": "2026-06-04T02:52:38Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix storage path",
+      "url": "https://github.com/Ladybug-Memory/icebug-format/pull/10",
+      "date": "2026-06-02T01:42:50Z",
+      "subtitle": "Ladybug-Memory/icebug-format",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add db path to VFS search paths",
+      "url": "https://github.com/LadybugDB/ladybug/pull/553",
+      "date": "2026-06-01T23:46:06Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add checks to block main graph create/drop",
+      "url": "https://github.com/LadybugDB/ladybug/pull/542",
+      "date": "2026-06-01T20:28:05Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update dependencies",
+      "url": "https://github.com/LadybugDB/bugscope/pull/12",
+      "date": "2026-06-01T04:30:59Z",
+      "subtitle": "LadybugDB/bugscope",
+      "meta": "merged"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "Ladybug x Icebug notebooks are out!! \r\n\r\nThe notebooks explain how icebug-format brings graph database (ladybugDB) and high performance analytics(icebug) under one roof. \r\n\r\nhttps://github.com/LadybugDB/ladybug-icebug-notebooks/",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/ladybug-x-icebug-notebooks-are-out-the-notebooks-explain-how-icebug-format-brings-graph-4b09",
+      "date": "2026-05-31T16:44:34Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update icebug to 12.9",
+      "url": "https://github.com/LadybugDB/ladybug-icebug-notebooks/pull/2",
+      "date": "2026-05-31T15:00:20Z",
+      "subtitle": "LadybugDB/ladybug-icebug-notebooks",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix max_db_size",
+      "url": "https://github.com/LadybugDB/ladybug-python/pull/24",
+      "date": "2026-05-31T14:51:30Z",
+      "subtitle": "LadybugDB/ladybug-python",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix buffer manager frame group limit err msg",
+      "url": "https://github.com/LadybugDB/ladybug/pull/543",
+      "date": "2026-05-30T17:40:38Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update ladybug submodule to 0.17.0",
+      "url": "https://github.com/LadybugDB/explorer/pull/27",
+      "date": "2026-05-30T14:53:31Z",
+      "subtitle": "LadybugDB/explorer",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix max_db_size docstr",
+      "url": "https://github.com/LadybugDB/ladybug-rust/pull/17",
+      "date": "2026-05-30T10:03:16Z",
+      "subtitle": "LadybugDB/ladybug-rust",
+      "meta": "closed"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "LadybugDB: a Graph Lakehouse",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/ladybugdb-a-graph-lakehouse-894",
+      "date": "2026-05-29T16:05:00Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add arrow csr dst col name param",
+      "url": "https://github.com/LadybugDB/ladybug-rust/pull/16",
+      "date": "2026-05-28T20:47:05Z",
+      "subtitle": "LadybugDB/ladybug-rust",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add nodejs test exports flag",
+      "url": "https://github.com/LadybugDB/ladybug/pull/535",
+      "date": "2026-05-28T18:40:44Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add arrow csr dst col name param",
+      "url": "https://github.com/LadybugDB/ladybug-python/pull/21",
+      "date": "2026-05-28T18:18:50Z",
+      "subtitle": "LadybugDB/ladybug-python",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add icebug notebooks",
+      "url": "https://github.com/LadybugDB/ladybug-icebug-notebooks/pull/1",
+      "date": "2026-05-28T17:55:27Z",
+      "subtitle": "LadybugDB/ladybug-icebug-notebooks",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "release 0.17.0",
+      "url": "https://github.com/LadybugDB/ladybug-docs/pull/27",
+      "date": "2026-05-28T16:57:47Z",
+      "subtitle": "LadybugDB/ladybug-docs",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add arrow csr dst col name",
+      "url": "https://github.com/LadybugDB/ladybug-nodejs/pull/19",
+      "date": "2026-05-28T16:32:12Z",
+      "subtitle": "LadybugDB/ladybug-nodejs",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add arrow csr dst col name param",
+      "url": "https://github.com/LadybugDB/ladybug/pull/534",
+      "date": "2026-05-28T14:06:15Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add a helper method for loading IcebugMem object",
+      "url": "https://github.com/Ladybug-Memory/icebug/pull/32",
+      "date": "2026-05-27T22:56:37Z",
+      "subtitle": "Ladybug-Memory/icebug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix undirected graphs handling",
+      "url": "https://github.com/Ladybug-Memory/icebug-format/pull/6",
+      "date": "2026-05-27T01:52:17Z",
+      "subtitle": "Ladybug-Memory/icebug-format",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Update Python version requirement to >=3.9",
+      "url": "https://github.com/Ladybug-Memory/icebug-format/pull/5",
+      "date": "2026-05-26T04:27:49Z",
+      "subtitle": "Ladybug-Memory/icebug-format",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update to icebug-disk v1",
+      "url": "https://github.com/Ladybug-Memory/icebug-format/pull/3",
+      "date": "2026-05-25T04:36:27Z",
+      "subtitle": "Ladybug-Memory/icebug-format",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "add icebug-memory converter",
+      "url": "https://github.com/Ladybug-Memory/icebug-format/pull/4",
+      "date": "2026-05-25T03:46:00Z",
+      "subtitle": "Ladybug-Memory/icebug-format",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "implement icebug-memory",
+      "url": "https://github.com/LadybugDB/ladybug-python/pull/17",
+      "date": "2026-05-20T03:13:01Z",
+      "subtitle": "LadybugDB/ladybug-python",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Fix ice-disk table scans",
+      "url": "https://github.com/LadybugDB/ladybug/pull/491",
+      "date": "2026-05-18T16:59:02Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Add icebug mem impl",
+      "url": "https://github.com/LadybugDB/ladybug/pull/496",
+      "date": "2026-05-18T13:40:29Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "move complex_queries tables out of demo_db",
+      "url": "https://github.com/LadybugDB/dataset/pull/4",
+      "date": "2026-05-17T16:07:16Z",
+      "subtitle": "LadybugDB/dataset",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update icebug-disk demo-db datasets",
+      "url": "https://github.com/LadybugDB/dataset/pull/3",
+      "date": "2026-05-15T20:47:11Z",
+      "subtitle": "LadybugDB/dataset",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "chore: fix CVEs",
+      "url": "https://github.com/LadybugDB/explorer/pull/22",
+      "date": "2026-05-13T17:45:07Z",
+      "subtitle": "LadybugDB/explorer",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "refactor parquet -> icebug-disk",
+      "url": "https://github.com/LadybugDB/ladybug/pull/476",
+      "date": "2026-05-13T04:21:59Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update icebug-disk ddl",
+      "url": "https://github.com/LadybugDB/dataset/pull/2",
+      "date": "2026-05-12T18:43:19Z",
+      "subtitle": "LadybugDB/dataset",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix codeQL alerts",
+      "url": "https://github.com/LadybugDB/ladybug/pull/485",
+      "date": "2026-05-12T17:04:52Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "fix parquet table scans",
+      "url": "https://github.com/LadybugDB/ladybug/pull/473",
+      "date": "2026-05-10T19:57:16Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "update ladybug submodule to 0.16.1",
+      "url": "https://github.com/LadybugDB/explorer/pull/21",
+      "date": "2026-05-09T16:05:20Z",
+      "subtitle": "LadybugDB/explorer",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "misc: fix docker img url; purge kuzu",
+      "url": "https://github.com/LadybugDB/explorer/pull/18",
+      "date": "2026-05-05T16:17:16Z",
+      "subtitle": "LadybugDB/explorer",
+      "meta": "merged"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Fix inline property filter support for ANY graph queries",
+      "url": "https://github.com/LadybugDB/ladybug/pull/453",
+      "date": "2026-05-04T14:55:23Z",
+      "subtitle": "LadybugDB/ladybug",
+      "meta": "closed"
+    },
+    {
+      "source": "github",
+      "icon": "git-merge",
+      "title": "Release 0.15.4",
+      "url": "https://github.com/LadybugDB/ladybug-rpm/pull/5",
+      "date": "2026-04-28T18:04:30Z",
+      "subtitle": "LadybugDB/ladybug-rpm",
+      "meta": "merged"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "kuzu is dead. Now what?",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/kuzu-is-dead-now-what-2jhg",
+      "date": "2026-03-02T03:47:47Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "blog",
+      "icon": "book-open",
+      "title": "My journey to Linux Kernel Mentorship Fall 2025",
+      "url": "https://dev.to/ally_heev_a2677bbdadf870a/my-journey-to-linux-kernel-mentorship-fall-2025-lp9",
+      "date": "2025-12-09T08:09:02Z",
+      "subtitle": "Dev.to",
+      "meta": "article"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "checkpatch: add uninitialized pointer with __free attribute check",
+      "url": "https://github.com/torvalds/linux/commit/01da5216c572f6f8fca4e272451aad6c273b0d57",
+      "date": "2025-12-03T20:58:49.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "powerpc: 82xx: fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/acd1e47db03d4b528fd5efb8565dd0de1c79f62a",
+      "date": "2025-11-16T19:55:44.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "crypto: asymmetric_keys - fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/79492d5adf456051908878816f1682144962be75",
+      "date": "2025-11-11T19:06:29.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "wifi: iwlwifi: mld: remove unused variable in d3.c",
+      "url": "https://github.com/torvalds/linux/commit/d0f573f3bf96d6441caf32202644f3b16a3afca3",
+      "date": "2025-11-11T13:53:51.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "tee: qcomtee: fix uninitialized pointers with free attribute",
+      "url": "https://github.com/torvalds/linux/commit/ac5ae0a5ce22640f73677d40730a37f43df442d1",
+      "date": "2025-11-11T13:26:42.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "scsi: scsi_debug: Fix uninitialized pointers with __free attr",
+      "url": "https://github.com/torvalds/linux/commit/3813d28b2b12dea8f44a6828b9c30b38208d3fc5",
+      "date": "2025-11-05T19:44:43.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "firmware: arm_scmi: Fix uninitialized pointers with __free attr",
+      "url": "https://github.com/torvalds/linux/commit/78b74136affd7aabb7a578b86e26099872861841",
+      "date": "2025-11-05T19:37:52.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "Documentation: fix dev-tools broken links in translations",
+      "url": "https://github.com/torvalds/linux/commit/d0ef999061213a45188bb03d2b185158bfa22909",
+      "date": "2025-10-20T16:16:30.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    },
+    {
+      "source": "jira",
+      "icon": "ticket",
+      "title": "KAFKA-19672: Producer performance test failing in parsing aggregate statistics",
+      "url": "https://issues.apache.org/jira/browse/KAFKA-19672",
+      "date": "2025-09-05T06:52:47.000+0000",
+      "subtitle": "Apache Kafka",
+      "meta": "open"
+    },
+    {
+      "source": "jira",
+      "icon": "ticket",
+      "title": "KAFKA-19671: benchmark_test is throwing `NullPointerException`",
+      "url": "https://issues.apache.org/jira/browse/KAFKA-19671",
+      "date": "2025-09-04T17:13:18.000+0000",
+      "subtitle": "Apache Kafka",
+      "meta": "open"
+    },
+    {
+      "source": "kernel",
+      "icon": "cpu",
+      "title": "kselftest: mm: fix typos in test_vmalloc.sh",
+      "url": "https://github.com/torvalds/linux/commit/940b1be22578dc67a0aa78338177b97b9a13eb8b",
+      "date": "2025-08-23T22:32:08.000+05:30",
+      "subtitle": "Linux Kernel",
+      "meta": "commit"
+    }
+  ]
+}
