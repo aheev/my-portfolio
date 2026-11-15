@@ -1,0 +1,18 @@
+[
+  {
+    "type": "jira",
+    "key": "KAFKA-19672",
+    "title": "Producer performance test failing in parsing aggregate statistics",
+    "url": "https://issues.apache.org/jira/browse/KAFKA-19672",
+    "status": "Open",
+    "date": "2025-09-05T06:52:47.000+0000"
+  },
+  {
+    "type": "jira",
+    "key": "KAFKA-19671",
+    "title": "benchmark_test is throwing `NullPointerException`",
+    "url": "https://issues.apache.org/jira/browse/KAFKA-19671",
+    "status": "Open",
+    "date": "2025-09-04T17:13:18.000+0000"
+  }
+]

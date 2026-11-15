@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor - A. Heev</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">AH</div>
+                <div class="title">SYS_ADMIN</div>
+            </div>
+            
+            <nav class="nav">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <span class="icon">[]</span> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-tab="projects">
+                    <span class="icon">./</span> Projects
+                </a>
+                <a href="#" class="nav-item" data-tab="about">
+                    <span class="icon">?</span> About
+                </a>
+            </nav>
+
+            <div class="status-box">
+                <div>CPU: <span id="cpu-load">12%</span></div>
+                <div>MEM: <span id="mem-load">4.2GB</span></div>
+                <div>UPTIME: <span id="uptime">Loading...</span></div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <div id="dashboard-view" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">RING_0_OPS</div>
+                        <div class="stat-value" id="stat-kernel">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">GIT_PUSHES</div>
+                        <div class="stat-value" id="stat-github">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">JIRA_TICKETS</div>
+                        <div class="stat-value" id="stat-jira">--</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">DEV_LOGS</div>
+                        <div class="stat-value" id="stat-blojs">--</div>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="panel" style="min-height: 250px;">
+                        <div class="panel-header">
+                            <div>
+                                <h3>OPS_FREQUENCY (30d)</h3>
+                                <div style="font-size: 10px; color: var(--text-dim); margin-top: 2px;">Daily contributions & patches</div>
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding:10px; overflow:hidden;">
+                            <canvas id="throughputChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="panel" style="min-height: 250px;">
+                        <div class="panel-header"><h3>LANG_DISTRO</h3></div>
+                        <div class="panel-body" style="padding:10px; overflow:hidden; position: relative;">
+                             <canvas id="languageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feed Section -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>SYSTEM_LOGS</h3>
+                        <input type="text" id="log-filter" placeholder="grep logs..." class="search-input">
+                    </div>
+                    <div class="panel-body">
+                        <div class="log-table-header">
+                            <div class="col-time">TIMESTAMP</div>
+                            <div class="col-source">SOURCE</div>
+                            <div class="col-msg">MESSAGE</div>
+                            <div class="col-status">STATE</div>
+                        </div>
+                        <div id="log-feed" class="log-feed">
+                            <div class="loading">Loading /var/log/syslog...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modals / Hidden descriptions -->
+    <script src="assets/dashboard.js"></script>
+</body>
+</html>
